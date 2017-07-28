@@ -1,10 +1,10 @@
 var _ = require("lodash");
 
-var Store = function(name, city){
+var Store = function(name, city, balance){
   this.name = name;
   this.city = city;
   this.inventory = [];
-  this.balance = 1000;
+  this.balance = balance;
 };
 
 Store.prototype = {
@@ -29,6 +29,10 @@ Store.prototype = {
     return this.balance + this.inventoryValue();
   },  
 
+  sellBook: function(book){
+    _.remove(this.inventory, book);
+    this.balance -= book.price;
+  },  
 
 
 };

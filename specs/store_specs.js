@@ -10,7 +10,7 @@ describe('Store', function(){
   var book4;
 
   beforeEach(function(){
-    store1 = new Store("Glasgow Book Shop", "Glasgow");
+    store1 = new Store("Glasgow Book Shop", "Glasgow", 1000);
     book1 = new Book("The Trial", "Franz Kafka", "Classics", 10);
     book2 = new Book("The 80/20 Principle", "Richard Koch", "Business", 20);
     book3 = new Book("Neuromancer", "William Gibson", "Science Fiction", 9);
@@ -55,13 +55,21 @@ describe('Store', function(){
     assert.strictEqual(store1.total(), 1044);
   });
 
-  xit("should be able to sell book and adjust the Store balance to account for the Book being sold", function(){
+  it("should be able to sell book...", function(){
     store1.addBook(book1);
     store1.addBook(book2);
     store1.addBook(book3);
     store1.addBook(book4);
     store1.sellBook(book1);
-    assert.strictEqual(store1.inventory.length, 4);
+    assert.strictEqual(store1.inventory.length, 3);
   });
 
+  it("... and adjust the Store balance to account for the Book being sold", function(){
+    store1.addBook(book1);
+    store1.addBook(book2);
+    store1.addBook(book3);
+    store1.addBook(book4);
+    store1.sellBook(book1);
+    assert.strictEqual(store1.balance, 990);
+  });
 });
