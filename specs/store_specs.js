@@ -55,4 +55,13 @@ describe('Store', function(){
     assert.strictEqual(store1.total(), 1044);
   });
 
+  xit("should be able to sell book and adjust the Store balance to account for the Book being sold", function(){
+    store1.addBook(book1);
+    store1.addBook(book2);
+    store1.addBook(book3);
+    store1.addBook(book4);
+    store1.sellBook(book1);
+    assert.strictEqual(store1.inventory.length, 4);
+  });
+
 });

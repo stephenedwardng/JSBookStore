@@ -30,6 +30,7 @@ Store.prototype = {
   },  
 
 
+
 };
 
 module.exports = Store;
