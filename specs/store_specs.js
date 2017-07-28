@@ -39,6 +39,24 @@ describe('Store', function(){
     assert.strictEqual(store1.listInventory(), "Title: The Trial, Author: Franz Kafka, Genre: Fiction, Price: £10; Title: The 80/20 Principle, Author: Richard Koch, Genre: Business, Price: £20;");
   });
 
+  it("should be able to sell book", function(){
+    store1.addBook(book1);
+    store1.addBook(book2);
+    store1.addBook(book3);
+    store1.addBook(book4);
+    store1.sellBook(book1);
+    assert.strictEqual(store1.inventory.length, 3);
+  });
+
+  it("should adjust the Store balance to account for the Book being sold", function(){
+    store1.addBook(book1);
+    store1.addBook(book2);
+    store1.addBook(book3);
+    store1.addBook(book4);
+    store1.sellBook(book1);
+    assert.strictEqual(store1.balance, 990);
+  });
+
   it("should calculate inventory value", function(){
     store1.addBook(book1);
     store1.addBook(book2);
@@ -55,21 +73,10 @@ describe('Store', function(){
     assert.strictEqual(store1.total(), 1044);
   });
 
-  it("should be able to sell book...", function(){
-    store1.addBook(book1);
-    store1.addBook(book2);
-    store1.addBook(book3);
-    store1.addBook(book4);
-    store1.sellBook(book1);
-    assert.strictEqual(store1.inventory.length, 3);
+// How do I get the object comparison to match in the test?
+  it("should be able to view all Books of a given Genre", function(){
+    var scifiInventory = [book3, book4];
+    assert.deepEqual(store1.viewByGenre("Science Fiction"), scifiInventory);
   });
 
-  it("... and adjust the Store balance to account for the Book being sold", function(){
-    store1.addBook(book1);
-    store1.addBook(book2);
-    store1.addBook(book3);
-    store1.addBook(book4);
-    store1.sellBook(book1);
-    assert.strictEqual(store1.balance, 990);
-  });
 });

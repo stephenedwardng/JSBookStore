@@ -19,6 +19,11 @@ Store.prototype = {
   //   })
   // },
 
+  sellBook: function(book){
+    _.remove(this.inventory, book);
+    this.balance -= book.price;
+  },  
+
   inventoryValue: function(){
     return _.sumBy(this.inventory, function(book) { 
       return book.price; 
@@ -29,10 +34,11 @@ Store.prototype = {
     return this.balance + this.inventoryValue();
   },  
 
-  sellBook: function(book){
-    _.remove(this.inventory, book);
-    this.balance -= book.price;
-  },  
+  viewByGenre: function(genre){
+    return _.filter(this.inventory, function(book){
+      return book.genre === genre;
+    });
+  },
 
 
 };
