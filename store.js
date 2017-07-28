@@ -6,9 +6,15 @@ var Store = function(name, city){
 };
 
 Store.prototype = {
+
   addBook: function(book){
     this.inventory.push(book);
   },
+
+  listInventory: function(){
+    
+  },
+
 
 };
 

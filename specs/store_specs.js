@@ -33,4 +33,10 @@ describe('Store', function(){
     assert.strictEqual(store1.inventory.length, 4);
   });
 
+  it("should be able to list inventory", function(){
+    store1.addBook(book1);
+    store1.addBook(book2);
+    assert.strictEqual(store1.listInventory(), "Title: The Trial, Author: Franz Kafka, Genre: Fiction, Price: £10; Title: The 80/20 Principle, Author: Richard Koch, Genre: Business, Price: £20;");
+  });
+
 });
