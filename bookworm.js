@@ -19,6 +19,13 @@ BookWorm.prototype = {
     this.cash += book.price;
   },  
 
+
+  libraryValue: function(){
+    return _.sumBy(this.library, function(book) { 
+      return book.price; 
+    });
+  },  
+
 };
 
 module.exports = BookWorm;
