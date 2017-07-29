@@ -5,6 +5,7 @@ var Book = require('../book.js');
 
 describe('BookWorm', function(){
   var bookworm1;
+  var bookworm2;
   var store1;
   var book1;
   var book2;
@@ -13,6 +14,7 @@ describe('BookWorm', function(){
 
   beforeEach(function(){
     bookworm1 = new BookWorm(50);
+    bookworm2 = new BookWorm(8);
     store1 = new Store("Glasgow Book Shop", "Glasgow", 1000);
     book1 = new Book("The Trial", "Franz Kafka", "Classics", 10);
     book2 = new Book("The 80/20 Principle", "Richard Koch", "Business", 20);
@@ -47,4 +49,10 @@ describe('BookWorm', function(){
     bookworm1.sellBook(book2);
     assert.strictEqual(bookworm1.library.length, 3);
   });
+
+  it("should not be able to buy a Book if they can't afford it", function(){
+    bookworm2.buyBook(book3);
+    assert.strictEqual(bookworm1.library.length, 0);
+  });
+
 });

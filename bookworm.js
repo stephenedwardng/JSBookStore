@@ -8,8 +8,10 @@ var BookWorm = function(cash){
 BookWorm.prototype = {
 
   buyBook: function(book){
-    this.library.push(book);
-    this.cash -= book.price;
+    if (this.cash > book.price){
+     this.library.push(book);
+      this.cash -= book.price;
+    }
   },
 
   sellBook: function(book){
