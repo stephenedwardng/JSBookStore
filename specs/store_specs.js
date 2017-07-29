@@ -76,7 +76,7 @@ describe('Store', function(){
 // How do I get the object comparison to match in the test?
   xit("should be able to view all Books of a given Genre", function(){
     var scifiInventory = [book3, book4];
-    assert.deepEqual(store1.viewByGenre("Science Fiction"), scifiInventory);
+    assert.strictEqual(store1.viewByGenre("Science Fiction"), scifiInventory);
   });
 
 });

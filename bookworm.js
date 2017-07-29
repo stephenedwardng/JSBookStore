@@ -7,9 +7,10 @@ var BookWorm = function(cash){
 
 BookWorm.prototype = {
 
-  // printProperties: function(){
-
-  // },
+  buyBook: function(book){
+    this.library.push(book);
+    this.cash -= book.price;
+  },
 
 };
 
