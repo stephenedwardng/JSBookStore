@@ -71,4 +71,20 @@ describe('BookWorm', function(){
     assert.strictEqual(bookworm1.valueByGenre("Science Fiction"), 14);
   });
 
+  it("should be able to sort their books by value. Ascending or descending", function(){
+    bookworm1.buyBook(book1);
+    bookworm1.buyBook(book2);
+    bookworm1.buyBook(book3);
+    bookworm1.buyBook(book4);
+    var librarySort = [book4, book3, book1, book2]; 
+    assert.deepEqual(bookworm1.sortByValue(), librarySort);
+  });
+
+  it("should be able to compare the value of their collection with another BookWorm", function(){
+    bookworm1.buyBook(book1);
+    bookworm1.buyBook(book2);
+    bookworm2.buyBook(book4);
+    assert.strictEqual(bookworm1.compareValueWith(bookworm2), 25);
+  });
+
 });

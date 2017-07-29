@@ -19,7 +19,6 @@ BookWorm.prototype = {
     this.cash += book.price;
   },  
 
-
   libraryValue: function(){
     return _.sumBy(this.library, function(book) { 
       return book.price; 
@@ -35,6 +34,16 @@ BookWorm.prototype = {
       return book.price; 
     });
   },
+
+  sortByValue: function(){
+    return _.sortBy(this.library, [function(book) { 
+      return book.price; 
+    }]);
+  },  
+
+  compareValueWith: function(bookworm2){
+    return this.libraryValue() - bookworm2.libraryValue();
+  },  
 
 };
 

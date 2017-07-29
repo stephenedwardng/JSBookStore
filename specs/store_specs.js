@@ -36,7 +36,8 @@ describe('Store', function(){
   xit("should be able to list inventory", function(){
     store1.addBook(book1);
     store1.addBook(book2);
-    assert.strictEqual(store1.listInventory(), "Title: The Trial, Author: Franz Kafka, Genre: Fiction, Price: £10; Title: The 80/20 Principle, Author: Richard Koch, Genre: Business, Price: £20;");
+    var inventoryList = [book1, book2];
+    assert.deepEqual(store1.listInventory(), inventoryList);
   });
 
   it("should be able to sell book", function(){
@@ -76,7 +77,7 @@ describe('Store', function(){
 // How do I get the object comparison to match in the test?
   xit("should be able to view all Books of a given Genre", function(){
     var scifiInventory = [book3, book4];
-    assert.strictEqual(store1.viewByGenre("Science Fiction"), scifiInventory);
+    assert.deepEqual(store1.viewByGenre("Science Fiction"), scifiInventory);
   });
 
 });
