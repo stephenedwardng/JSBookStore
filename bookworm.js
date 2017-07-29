@@ -26,6 +26,16 @@ BookWorm.prototype = {
     });
   },  
 
+  valueByGenre: function(genre){
+    var booksByGenre = _.filter(this.library, function(book){
+      return book.genre === genre;
+    });
+
+    return _.sumBy(booksByGenre, function(book) { 
+      return book.price; 
+    });
+  },
+
 };
 
 module.exports = BookWorm;

@@ -63,4 +63,12 @@ describe('BookWorm', function(){
     assert.strictEqual(bookworm1.libraryValue(), 44);
   });
 
+  it("should be able to view the total value of all books of a given Genre", function(){
+    bookworm1.buyBook(book1);
+    bookworm1.buyBook(book2);
+    bookworm1.buyBook(book3);
+    bookworm1.buyBook(book4);
+    assert.strictEqual(bookworm1.valueByGenre("Science Fiction"), 14);
+  });
+
 });
