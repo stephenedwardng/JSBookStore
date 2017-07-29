@@ -12,6 +12,11 @@ BookWorm.prototype = {
     this.cash -= book.price;
   },
 
+  sellBook: function(book){
+    _.remove(this.library, book);
+    this.cash += book.price;
+  },  
+
 };
 
 module.exports = BookWorm;

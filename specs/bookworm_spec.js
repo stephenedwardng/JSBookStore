@@ -34,4 +34,17 @@ describe('BookWorm', function(){
     assert.strictEqual(bookworm1.library.length, 1);
   });
 
+  it("should be able to sell a book - increase cash", function(){
+    bookworm1.sellBook(book2);
+    assert.strictEqual(bookworm1.cash, 70);
+  });
+
+  it("should be able to sell a book - remove book from library", function(){
+    bookworm1.buyBook(book1);
+    bookworm1.buyBook(book2);
+    bookworm1.buyBook(book3);
+    bookworm1.buyBook(book4);
+    bookworm1.sellBook(book2);
+    assert.strictEqual(bookworm1.library.length, 3);
+  });
 });
