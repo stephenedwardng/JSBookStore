@@ -13,11 +13,9 @@ Store.prototype = {
     this.inventory.push(book);
   },
 
-  // listInventory: function(){
-  //   inventory.forEach(function(book){
-  //     book.toString();
-  //   })
-  // },
+  listInventory: function(){
+    this.inventory.toString();
+  },
 
   sellBook: function(book){
     _.remove(this.inventory, book);

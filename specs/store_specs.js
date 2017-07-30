@@ -33,6 +33,7 @@ describe('Store', function(){
     assert.strictEqual(store1.inventory.length, 4);
   });
 
+  // How do I get the object comparison to match in the test?
   xit("should be able to list inventory", function(){
     store1.addBook(book1);
     store1.addBook(book2);

@@ -1,9 +1,10 @@
-var Book = function(title, author, genre, price, length){
+var Book = function(title, author, genre, price, length, controversial){
   this.title = title;
   this.author = author;
   this.genre = genre;
   this.price = price;
   this.length = length;
+  this.controversial = controversial;
 };
 
 Book.prototype = {
