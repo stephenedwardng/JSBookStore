@@ -27,7 +27,7 @@ AngryBookWorm.prototype = {
   },
 
   defaceBook: function(book){
-    book.length -= Math.floor(Math.random() * book.length);
+    book.length -= _.random(0, book.length);
   },
 
   readBook: function(book){

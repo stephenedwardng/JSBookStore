@@ -1,3 +1,4 @@
+var _ = require("lodash");
 var assert = require('assert');
 var BookWorm = require('../bookworm.js');
 var AngryBookWorm = require('../angrybookworm.js');
@@ -28,7 +29,8 @@ describe('AngryBookWorm', function(){
   it("should be able to deface a controversial book, ripping out a random number of pages", function(){
     angryBookworm1.buyBook(book1);
     angryBookworm1.defaceBook(book1);
-    assert.strictEqual(book1.length, howDoYouTestARandomNumber);
+    var testRange = _.inRange(book1.length, 0, 50000);
+    assert.strictEqual(true, testRange);
   });
 
   it("should be able to read a controversial book, they should return an appropriate String - book is controversial", function(){
