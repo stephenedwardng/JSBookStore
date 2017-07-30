@@ -25,15 +25,20 @@ describe('AngryBookWorm', function(){
     assert.strictEqual(angryBookworm1.library.length, 3);
   });
 
-  it("should be able to deface a controversial book, ripping out a random number of pages", function(){
+  xit("should be able to deface a controversial book, ripping out a random number of pages", function(){
     angryBookworm1.buyBook(book1);
     angryBookworm1.defaceBook(book1);
     assert.strictEqual(book1.length, howDoYouTestARandomNumber);
   });
 
-  it("should be able to read a controversial book, they should return an appropriate String, and stop immediately", function(){
+  it("should be able to read a controversial book, they should return an appropriate String - book is controversial", function(){
     angryBookworm1.buyBook(book1);
     assert.strictEqual(angryBookworm1.readBook(book1), "Oh my days");
+  });
+
+  it("should be able to read a controversial book, they should return an appropriate String - book is not controversial", function(){
+    angryBookworm1.buyBook(book3);
+    assert.strictEqual(angryBookworm1.readBook(book3), "Oh what a lovely uncontroversial read");
   });
 
 });
