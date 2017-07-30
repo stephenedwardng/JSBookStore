@@ -74,7 +74,7 @@ describe('Store', function(){
     assert.strictEqual(store1.total(), 1044);
   });
 
-// How do I get the object comparison to match in the test? lodash filter seems to be changing the order of object
+// How do I get the object comparison to match in the test? 
   it("should be able to view all Books of a given Genre", function(){
     var scifiInventory = [ 'Neuromancer', 'Do Androids Dream of Electric Sheep?' ];
     assert.deepEqual(store1.viewByGenre("Science Fiction"), scifiInventory);
