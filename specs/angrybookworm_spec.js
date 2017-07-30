@@ -25,7 +25,7 @@ describe('AngryBookWorm', function(){
     assert.strictEqual(angryBookworm1.library.length, 3);
   });
 
-  xit("should be able to deface a controversial book, ripping out a random number of pages", function(){
+  it("should be able to deface a controversial book, ripping out a random number of pages", function(){
     angryBookworm1.buyBook(book1);
     angryBookworm1.defaceBook(book1);
     assert.strictEqual(book1.length, howDoYouTestARandomNumber);

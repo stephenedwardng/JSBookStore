@@ -34,7 +34,7 @@ describe('Store', function(){
   });
 
   // How do I get the object comparison to match in the test?
-  xit("should be able to list inventory", function(){
+  it("should be able to list inventory", function(){
     store1.addBook(book1);
     store1.addBook(book2);
     var inventoryList = [book1, book2];
