@@ -14,7 +14,7 @@ Store.prototype = {
   },
 
   listInventory: function(){
-    this.inventory.toString();
+    return this.inventory;
   },
 
   sellBook: function(book){
