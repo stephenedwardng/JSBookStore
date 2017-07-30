@@ -33,9 +33,14 @@ Store.prototype = {
   },  
 
   viewByGenre: function(genre){
-    return _.filter(this.inventory, function(book){
+    var booksByGenre = _.filter(this.inventory, function(book){
       return book.genre === genre;
     });
+
+    return booksByGenre.map(function(book) {
+      return book.title;
+    });
+
   },
 
 

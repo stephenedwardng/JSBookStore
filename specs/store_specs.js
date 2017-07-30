@@ -11,10 +11,10 @@ describe('Store', function(){
 
   beforeEach(function(){
     store1 = new Store("Glasgow Book Shop", "Glasgow", 1000);
-    book1 = new Book("The Trial", "Franz Kafka", "Classics", 10);
-    book2 = new Book("The 80/20 Principle", "Richard Koch", "Business", 20);
-    book3 = new Book("Neuromancer", "William Gibson", "Science Fiction", 9);
-    book4 = new Book("Do Androids Dream of Electric Sheep?", "Philip K Dick", "Science Fiction", 5);
+    book1 = new Book("The Trial", "Franz Kafka", "Classics", 10, 500, true);
+    book2 = new Book("The 80/20 Principle", "Richard Koch", "Business", 20, 600, true);
+    book3 = new Book("Neuromancer", "William Gibson", "Science Fiction", 9, 700, false);
+    book4 = new Book("Do Androids Dream of Electric Sheep?", "Philip K Dick", "Science Fiction", 5, 700, false);
   });
 
   it("should be able to get name", function(){
@@ -74,9 +74,9 @@ describe('Store', function(){
     assert.strictEqual(store1.total(), 1044);
   });
 
-// How do I get the object comparison to match in the test? lodash filter seems to br changing the order of object
+// How do I get the object comparison to match in the test? lodash filter seems to be changing the order of object
   it("should be able to view all Books of a given Genre", function(){
-    var scifiInventory = [book3, book4];
+    var scifiInventory = [ 'Neuromancer', 'Do Androids Dream of Electric Sheep?' ];
     assert.deepEqual(store1.viewByGenre("Science Fiction"), scifiInventory);
   });
 
