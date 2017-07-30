@@ -16,10 +16,10 @@ describe('BookWorm', function(){
     bookworm1 = new BookWorm(50);
     bookworm2 = new BookWorm(8);
     store1 = new Store("Glasgow Book Shop", "Glasgow", 1000);
-    book1 = new Book("The Trial", "Franz Kafka", "Classics", 10);
-    book2 = new Book("The 80/20 Principle", "Richard Koch", "Business", 20);
-    book3 = new Book("Neuromancer", "William Gibson", "Science Fiction", 9);
-    book4 = new Book("Do Androids Dream of Electric Sheep?", "Philip K Dick", "Science Fiction", 5);
+    book1 = new Book("The Trial", "Franz Kafka", "Classics", 10, 50000);
+    book2 = new Book("The 80/20 Principle", "Richard Koch", "Business", 20, 60000);
+    book3 = new Book("Neuromancer", "William Gibson", "Science Fiction", 9, 70000);
+    book4 = new Book("Do Androids Dream of Electric Sheep?", "Philip K Dick", "Science Fiction", 5, 80000);
   });
 
   it("should be able to get cash", function(){
@@ -69,6 +69,14 @@ describe('BookWorm', function(){
     bookworm1.buyBook(book3);
     bookworm1.buyBook(book4);
     assert.strictEqual(bookworm1.valueByGenre("Science Fiction"), 14);
+  });
+
+  it("should be able to view their longest book", function(){
+    bookworm1.buyBook(book1);
+    bookworm1.buyBook(book2);
+    bookworm1.buyBook(book3);
+    bookworm1.buyBook(book4);
+    assert.deepEqual(bookworm1.longestBook(), book4);
   });
 
   it("should be able to sort their books by value. Ascending or descending", function(){

@@ -35,6 +35,12 @@ BookWorm.prototype = {
     });
   },
 
+  longestBook: function(){
+    return _.maxBy(this.library, function(book) { 
+      return book.length; 
+    });
+  },  
+
   sortByValue: function(){
     return _.sortBy(this.library, [function(book) { 
       return book.price; 
