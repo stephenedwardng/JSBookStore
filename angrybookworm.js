@@ -1,12 +1,12 @@
 var _ = require("lodash");
+var BookWorm = require("./BookWorm");
 
-// // Can't get inheritance working so creating new class so I can continue the extension methods
-// var AngryBookWorm = function(cash) {
-//   BookWorm.call(this);
-// }
-// var AngryBookWorm.inherits(Bookworm);
-// var AngryBookWorm = Object.create(BookWorm);
-// AngryBookWorm.prototype.constructor = AngryBookWorm;
+var AngryBookWorm = function(cash) {
+  BookWorm.call(this);
+}
+
+var AngryBookWorm = Object.create(BookWorm);
+AngryBookWorm.prototype.constructor = AngryBookWorm;
 
 var AngryBookWorm = function(cash){
   this.cash = cash;
